@@ -6,27 +6,54 @@
 <title>Wedding</title>
 
 <style>
-/* 🌸 Reset & Background */
 body {
   margin: 0;
   background: #f6eeee;
-  scroll-behavior: smooth; /* smooth scrolling */
 }
 
 /* 🌸 Each page fills the screen */
 .page {
   width: 100%;
-  min-height: 100vh; /* full screen height */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* 🌸 Image fits perfectly */
+/* 🌸 Image full screen */
 .page img {
-  width: 100vw;   /* full screen width */
-  height: 100vh;  /* full screen height */
-  object-fit: cover; /* fills screen, may crop slightly */
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* 🌸 Elegant navigation buttons */
+.nav {
+  position: fixed;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 0 10px;
+  font-size: 18px;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(145deg, #800020, #b3002d); /* shiny burgundy gradient */
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 </style>
 </head>
@@ -34,29 +61,59 @@ body {
 <body>
 
 <!-- PAGE 1 -->
-<div class="page">
+<div id="page1" class="page active">
   <img src="page1.png" alt="Page 1">
 </div>
 
 <!-- PAGE 2 -->
-<div class="page">
+<div id="page2" class="page">
   <img src="page2.png" alt="Page 2">
 </div>
 
 <!-- PAGE 3 -->
-<div class="page">
+<div id="page3" class="page">
   <img src="page3.png" alt="Page 3">
 </div>
 
 <!-- PAGE 4 -->
-<div class="page">
+<div id="page4" class="page">
   <img src="page4.png" alt="Page 4">
 </div>
 
 <!-- PAGE 5 -->
-<div class="page">
+<div id="page5" class="page">
   <img src="page5.png" alt="Page 5">
 </div>
+
+<!-- NAVIGATION -->
+<div class="nav">
+  <button onclick="prevPage()">Previous</button>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<script>
+let current = 1;
+let total = 5;
+
+function showPage(num) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + num).classList.add('active');
+}
+
+function nextPage() {
+  if (current < total) {
+    current++;
+    showPage(current);
+  }
+}
+
+function prevPage() {
+  if (current > 1) {
+    current--;
+    showPage(current);
+  }
+}
+</script>
 
 </body>
 </html>
