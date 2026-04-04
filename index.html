@@ -1,89 +1,198 @@
 <!DOCTYPE html>
-  <h1>Welcome</h1>
-  <p class="finger">👉 Click the map</p>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faith & Lenard Wedding</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: #fdf7f7;
+}
+
+/* PAGES */
+.page {
+  display: none;
+  padding: 20px;
+  text-align: center;
+}
+.active {
+  display: block;
+}
+
+/* COUNTDOWN */
+#countdown {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  font-weight: bold;
+  color: #8B0000;
+}
+
+/* BUTTON STYLE */
+.btn {
+  background: #7b1e1e;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+/* MOVING FINGER */
+.finger {
+  font-size: 40px;
+  animation: bounce 1s infinite alternate;
+}
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(10px); }
+}
+
+/* INPUT */
+input, textarea {
+  padding: 10px;
+  width: 80%;
+  margin: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="countdown"></div>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+  <h1>Faith & Lenard</h1>
+  <p>May 08, 2026 - 03:00 PM</p>
+
+  <div class="finger">👇</div>
+
   <a href="https://maps.app.goo.gl/owUoDmKXqvL2LkbC7" target="_blank">
-    <img src="map.png" width="300">
+    <img src="map.png" width="250">
   </a>
+
   <br><br>
-  <button class="button" onclick="goToPage(9)">RSVP NOW</button>
+  <button class="btn" onclick="goToPage(9)">RSVP NOW</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+  <h2>Dress Code</h2>
+  <p>Follow the color palette shown</p>
 </div>
 
 <!-- PAGE 3 -->
-<div class="page" id="page3">
-  <h2 onclick="enterName()">Click to Enter Name</h2>
-  <p id="nameDisplay"></p>
+<div id="page3" class="page">
+  <h2>Join Our Celebration!</h2>
 
-  <h3 onclick="chooseAttendance()">Will you attend?</h3>
-  <p id="attendance"></p>
+  <button class="btn" onclick="enterName()">Name</button><br><br>
 
-  <h3 onclick="enterDiet()">Dietary Restrictions</h3>
-  <p id="diet"></p>
+  <button class="btn" onclick="chooseAttendance()">Will you attend?</button><br><br>
+
+  <button class="btn" onclick="enterDiet()">Dietary Restrictions</button>
+
+  <p id="output"></p>
 </div>
 
 <!-- PAGE 4 -->
-<div class="page" id="page4">
-  <h2 onclick="writeMessage()">Click to Write Message</h2>
-  <p id="message"></p>
+<div id="page4" class="page">
+  <h2>We'd love to hear from you</h2>
+
+  <button class="btn" onclick="openLetter()">Open Letter</button>
+
+  <div id="letterBox" style="display:none;">
+    <input id="guestName" placeholder="Your Name"><br>
+    <textarea id="guestMsg" placeholder="Message"></textarea><br>
+    <button class="btn" onclick="sendMessage()">Send Response</button>
+  </div>
 </div>
 
 <!-- PAGE 5 -->
-<div class="page" id="page5">
-  <h2>Gift</h2>
-  <button class="button" onclick="window.location.href='https://aprilsalem-cyber.github.io/gift-selection/?fbclid=IwY2xjawQ9-uBleHRuA2FlbQIxMABicmlkETFEU0ZaU2hZZ2l4UUdYWjBIc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHiUs_PXEpfB5r7ColPOryZePnYTaL1-h1ki2qTcFmoAWMQam_a36i8R_0Kgv_aem_6WINKzTcXIpv5D3HlJx6xA'">Open Gift Page</button>
+<div id="page5" class="page">
+  <h1>Choose your gift</h1>
+
+  <div class="finger">👇</div>
+
+  <img src="gift.png" width="200"
+    onclick="window.location.href='https://aprilsalem-cyber.github.io/gift-selection/?fbclid=IwY2xjawQ9-uBleHRuA2FlbQIxMABicmlkETFEU0ZaU2hZZ2l4UUdYWjBIc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHiUs_PXEpfB5r7ColPOryZePnYTaL1-h1ki2qTcFmoAWMQam_a36i8R_0Kgv_aem_6WINKzTcXIpv5D3HlJx6xA'">
 </div>
 
 <!-- PAGE 9 -->
-<div class="page" id="page9">
-  <h2>RSVP Form</h2>
-  <input type="text" id="finalName" placeholder="Your Name"><br><br>
-  <button onclick="submitRSVP()">Submit</button>
-  <p id="result"></p>
+<div id="page9" class="page">
+  <h2>RSVP</h2>
+  <input id="rsvpName" placeholder="Your Name"><br><br>
+
+  <select id="rsvpAttend">
+    <option>Joyfully Accept</option>
+    <option>Regretfully Decline</option>
+  </select><br><br>
+
+  <button class="btn" onclick="submitRSVP()">Submit</button>
+
+  <p id="thanks"></p>
 </div>
 
 <script>
+
+/* PAGE NAVIGATION */
 function goToPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page' + page).classList.add('active');
 }
 
+/* PAGE 3 FUNCTIONS */
 function enterName() {
   let name = prompt("Enter your name:");
-  document.getElementById('nameDisplay').innerText = name;
+  document.getElementById('output').innerText = name;
 }
 
 function chooseAttendance() {
-  let choice = prompt("Type: Accept or Decline");
-  document.getElementById('attendance').innerText = choice;
+  let choice = prompt("Type: Joyfully Accept or Regretfully Decline");
+  document.getElementById('output').innerText = choice;
 }
 
 function enterDiet() {
   let diet = prompt("Enter dietary restrictions:");
-  document.getElementById('diet').innerText = diet;
+  document.getElementById('output').innerText = diet;
 }
 
-function writeMessage() {
-  let msg = prompt("Write your message:");
-  document.getElementById('message').innerText = msg;
+/* PAGE 4 */
+function openLetter() {
+  document.getElementById('letterBox').style.display = 'block';
 }
 
+function sendMessage() {
+  alert("Message sent!");
+}
+
+/* RSVP STORAGE */
 function submitRSVP() {
-  let name = document.getElementById('finalName').value;
-  let data = JSON.parse(localStorage.getItem('rsvpList') || '[]');
-  data.push(name);
-  localStorage.setItem('rsvpList', JSON.stringify(data));
-  document.getElementById('result').innerText = "Thank you!";
+  let name = document.getElementById('rsvpName').value;
+  let attend = document.getElementById('rsvpAttend').value;
+
+  let data = JSON.parse(localStorage.getItem('guests') || '[]');
+  data.push({name, attend});
+  localStorage.setItem('guests', JSON.stringify(data));
+
+  document.getElementById('thanks').innerText = "Thank you for your response!";
 }
 
-// COUNTDOWN
-let eventDate = new Date("Dec 31, 2026 00:00:00").getTime();
+/* COUNTDOWN */
+let eventDate = new Date("May 8, 2026 15:00:00").getTime();
+
 setInterval(() => {
   let now = new Date().getTime();
   let distance = eventDate - now;
+
   let days = Math.floor(distance / (1000 * 60 * 60 * 24));
   document.getElementById("countdown").innerText = days + " days left";
 }, 1000);
+
 </script>
 
 </body>
 </html>
-
