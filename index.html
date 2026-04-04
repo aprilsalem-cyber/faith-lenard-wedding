@@ -12,21 +12,19 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* 🌸 Each page fills the screen */
+/* 🌸 Each page fills the width, scroll if taller */
 .page {
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block; /* allow natural scroll */
   position: relative;
 }
 
-/* 🌸 Image full screen */
+/* 🌸 Full-width image, keep original height */
 .page img {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  object-fit: none;
+  display: block;
 }
 
 /* 🌸 Elegant navigation buttons */
@@ -72,7 +70,23 @@ button:hover {
   100% { transform: translateY(-15px); }
 }
 
-/* 🌸 Optional: make cursor pointer for clickable areas */
+/* 🌸 Countdown box */
+#countdown {
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  color: #b3002d;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  z-index: 2000;
+  background: rgba(255,255,255,0.7);
+  padding: 15px 25px;
+  border-radius: 15px;
+}
+
+/* 🌸 Optional clickable cursor */
 .clickable {
   cursor: pointer;
 }
@@ -83,32 +97,17 @@ button:hover {
 <!-- PAGE 1 -->
 <div id="page1" class="page active">
   <img src="page1.png" alt="Page 1">
+  
+  <!-- Countdown -->
+  <div id="countdown">00d 00h 00m 00s</div>
 
-  <!-- Countdown display -->
-  <div id="countdown" style="
-      position:absolute;
-      top:20%;
-      right:15%;
-      color:#b3002d;
-      font-size:32px;
-      font-weight:bold;
-      font-family:'Arial',sans-serif;
-      text-align:center;
-      z-index:2000;
-      background: rgba(255,255,255,0.7);
-      padding:15px 25px;
-      border-radius:15px;
-  ">
-    Loading...
-  </div>
-
-  <!-- MAP CLICKABLE -->
+  <!-- Map clickable -->
   <a href="https://maps.app.goo.gl/8jwwaMsXphh9X5tg7" target="_blank" class="clickable" style="position:absolute; top:55%; left:60%; width:120px; height:120px;"></a>
   
-  <!-- MOVING FINGER TO MAP -->
+  <!-- Finger pointing to map -->
   <img src="finger.png" class="finger" style="top:50%; left:55%;">
-  
-  <!-- RSVP BUTTON -->
+
+  <!-- RSVP button -->
   <button style="position:absolute; bottom:100px; right:30px;" onclick="goToPage(3)">RSVP NOW</button>
 </div>
 
@@ -130,11 +129,11 @@ button:hover {
 <!-- PAGE 5 -->
 <div id="page5" class="page">
   <img src="page5.png" alt="Page 5">
-  
-  <!-- GIFT CLICKABLE -->
+
+  <!-- Gift clickable -->
   <a href="FZ9leHRuA2FlbQIxMABicmlkETFSZ3J2Y1BXTENIQWcwZDNYc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkBsELiPQClhLCWLQLzRPaH8l8d1lEXs0hdV6Eojy037Pz8k8h5e4d4kxmOR_aem_SoVQbdtBWgAyr_wympICRA" target="_blank" class="clickable" style="position:absolute; top:50%; left:50%; width:150px; height:150px;"></a>
-  
-  <!-- MOVING FINGER TO GIFT -->
+
+  <!-- Finger pointing to gift -->
   <img src="finger.png" class="finger" style="top:45%; left:45%;">
 </div>
 
@@ -145,13 +144,14 @@ button:hover {
 </div>
 
 <script>
+// ---------- PAGE NAVIGATION ----------
 let current = 1;
 let total = 5;
 
 function showPage(num) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page' + num).classList.add('active');
-  current = num; // update current page
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  document.getElementById('page' + num).style.display = 'block';
+  current = num;
 }
 
 function nextPage() {
@@ -165,6 +165,27 @@ function prevPage() {
 function goToPage(num) {
   showPage(num);
 }
+
+// ---------- COUNTDOWN ----------
+const countdownEl = document.getElementById('countdown');
+// Set your wedding date here
+const weddingDate = new Date("2026-06-01T15:00:00"); 
+
+function updateCountdown() {
+  const now = new Date();
+  let diff = weddingDate - now;
+  if (diff < 0) diff = 0;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
 </script>
 
 </body>
