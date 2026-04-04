@@ -6,34 +6,30 @@
 <title>Wedding</title>
 
 <style>
-/* 🌸 BODY SETUP */
 body {
   margin: 0;
   background: #f6eeee;
-  overflow: hidden; /* disables scroll so buttons work perfectly */
+  overflow-y: scroll; /* allow vertical scrolling for tall designs */
 }
 
-/* 🌸 EACH PAGE FULL SCREEN */
+/* 🌸 EACH PAGE FULL WIDTH */
 .page {
   width: 100%;
-  height: 100vh;
-  display: none; /* hide by default */
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  padding: 20px 0; /* gives top and bottom space */
 }
 
-.active {
-  display: flex; /* only active page shows */
-}
-
-/* 🌸 IMAGE FULL SCREEN */
+/* 🌸 IMAGE FIT WITHOUT CROPPING */
 .page img {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  width: 100%;
+  height: auto; /* keeps full image visible */
+  max-width: 1200px; /* optional max size for large screens */
 }
 
-/* 🌸 ELEGANT NAVIGATION BUTTONS */
+/* 🌸 Elegant navigation buttons */
 .nav {
   position: fixed;
   bottom: 30px;
@@ -49,7 +45,7 @@ button {
   font-family: 'Arial', sans-serif;
   font-weight: bold;
   color: #fff;
-  background: linear-gradient(145deg, #800020, #b3002d); /* shiny burgundy */
+  background: linear-gradient(145deg, #800020, #b3002d);
   border: none;
   border-radius: 25px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -67,7 +63,7 @@ button:hover {
 <body>
 
 <!-- 🌸 PAGES -->
-<div id="page1" class="page active">
+<div id="page1" class="page">
   <img src="page1.png" alt="Page 1">
 </div>
 <div id="page2" class="page">
@@ -94,14 +90,16 @@ let current = 1;
 let total = 5;
 
 function showPage(num) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page' + num).classList.add('active');
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(p => p.style.display = 'none');
+  pages[num-1].style.display = 'flex';
 }
 
 function nextPage() {
   if (current < total) {
     current++;
     showPage(current);
+    window.scrollTo(0,0); // scroll to top when switching pages
   }
 }
 
@@ -109,8 +107,12 @@ function prevPage() {
   if (current > 1) {
     current--;
     showPage(current);
+    window.scrollTo(0,0);
   }
 }
+
+// Show first page on load
+showPage(current);
 </script>
 
 </body>
