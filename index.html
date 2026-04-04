@@ -9,24 +9,24 @@
 body {
   margin: 0;
   background: #f6eeee;
-  overflow-y: scroll; /* allow vertical scrolling for tall designs */
+  font-family: Arial, sans-serif;
 }
 
-/* 🌸 EACH PAGE FULL WIDTH */
+/* 🌸 Each page fills the screen */
 .page {
   width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  padding: 20px 0; /* gives top and bottom space */
+  position: relative;
 }
 
-/* 🌸 IMAGE FIT WITHOUT CROPPING */
+/* 🌸 Image full screen */
 .page img {
-  width: 100%;
-  height: auto; /* keeps full image visible */
-  max-width: 1200px; /* optional max size for large screens */
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
 }
 
 /* 🌸 Elegant navigation buttons */
@@ -42,10 +42,9 @@ button {
   padding: 12px 25px;
   margin: 0 10px;
   font-size: 18px;
-  font-family: 'Arial', sans-serif;
   font-weight: bold;
   color: #fff;
-  background: linear-gradient(145deg, #800020, #b3002d);
+  background: linear-gradient(145deg, #800020, #b3002d); /* shiny burgundy gradient */
   border: none;
   border-radius: 25px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -57,29 +56,71 @@ button:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
+
+/* 🌸 Finger icons */
+.finger {
+  position: absolute;
+  width: 50px;
+  animation: bounce 1.2s infinite alternate;
+  z-index: 2000;
+  cursor: pointer;
+  filter: drop-shadow(0 0 5px #b3002d);
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-15px); }
+}
+
+/* 🌸 Optional: make cursor pointer for clickable areas */
+.clickable {
+  cursor: pointer;
+}
 </style>
 </head>
-
 <body>
 
-<!-- 🌸 PAGES -->
-<div id="page1" class="page">
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
   <img src="page1.png" alt="Page 1">
+  
+  <!-- MAP CLICKABLE -->
+  <a href="https://maps.app.goo.gl/8jwwaMsXphh9X5tg7" target="_blank" class="clickable" style="position:absolute; top:55%; left:60%; width:120px; height:120px;"></a>
+  
+  <!-- MOVING FINGER TO MAP -->
+  <img src="finger.png" class="finger" style="top:50%; left:55%;">
+  
+  <!-- RSVP BUTTON -->
+  <button style="position:absolute; bottom:100px; right:30px;" onclick="goToPage(3)">RSVP NOW</button>
 </div>
+
+<!-- PAGE 2 -->
 <div id="page2" class="page">
   <img src="page2.png" alt="Page 2">
 </div>
+
+<!-- PAGE 3 -->
 <div id="page3" class="page">
   <img src="page3.png" alt="Page 3">
 </div>
+
+<!-- PAGE 4 -->
 <div id="page4" class="page">
   <img src="page4.png" alt="Page 4">
 </div>
+
+<!-- PAGE 5 -->
 <div id="page5" class="page">
   <img src="page5.png" alt="Page 5">
+  
+  <!-- GIFT CLICKABLE -->
+  <a href="FZ9leHRuA2FlbQIxMABicmlkETFSZ3J2Y1BXTENIQWcwZDNYc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkBsELiPQClhLCWLQLzRPaH8l8d1lEXs0hdV6Eojy037Pz8k8h5e4d4kxmOR_aem_SoVQbdtBWgAyr_wympICRA" target="_blank" class="clickable" style="position:absolute; top:50%; left:50%; width:150px; height:150px;"></a>
+  
+  <!-- MOVING FINGER TO GIFT -->
+  <img src="finger.png" class="finger" style="top:45%; left:45%;">
 </div>
 
-<!-- 🌸 NAVIGATION BUTTONS -->
+<!-- NAVIGATION -->
 <div class="nav">
   <button onclick="prevPage()">Previous</button>
   <button onclick="nextPage()">Next</button>
@@ -90,29 +131,22 @@ let current = 1;
 let total = 5;
 
 function showPage(num) {
-  const pages = document.querySelectorAll('.page');
-  pages.forEach(p => p.style.display = 'none');
-  pages[num-1].style.display = 'flex';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + num).classList.add('active');
+  current = num; // update current page
 }
 
 function nextPage() {
-  if (current < total) {
-    current++;
-    showPage(current);
-    window.scrollTo(0,0); // scroll to top when switching pages
-  }
+  if (current < total) showPage(current + 1);
 }
 
 function prevPage() {
-  if (current > 1) {
-    current--;
-    showPage(current);
-    window.scrollTo(0,0);
-  }
+  if (current > 1) showPage(current - 1);
 }
 
-// Show first page on load
-showPage(current);
+function goToPage(num) {
+  showPage(num);
+}
 </script>
 
 </body>
