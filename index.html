@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faith & Lenard Wedding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --lavender:#B4AAC8;
+      --blue:#96B4D2;
+      --pink:#EBB4B4;
+      --peach:#F0C878;
+      --green:#AAC896;
+      --yellow:#F5DC78;
+
+      /* Boys palette */
+      --cream:#F5F5DC;
+      --beige:#E8DCC4;
+      --lightbrown:#C4A484;
+
+      --dark:#333;
+    }
+
+    body{margin:0;font-family:'Poppins',sans-serif;color:var(--dark);}
+    section{min-height:100vh;padding:40px 20px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+
+    h1.script{font-family:'Great Vibes',cursive;font-size:60px;margin:10px 0;}
+    h2{margin:10px 0;}
+
+    .btn{padding:12px 20px;border:none;border-radius:25px;background:var(--lavender);color:white;text-decoration:none;cursor:pointer;display:inline-block;margin-top:15px;}
+
+    .countdown{font-size:22px;margin-top:20px;}
+
+    .card{max-width:600px;width:100%;background:white;border-radius:20px;padding:20px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+
+    input, select, textarea{
+      width:100%;padding:10px;margin:8px 0;border-radius:10px;border:1px solid #ccc;
+    }
+
+    .colors{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px;}
+    .color-box{width:70px;height:70px;border-radius:10px;color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center;}
+
+    footer{margin-top:30px;font-size:14px;}
+  </style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section style="background:var(--lavender);color:white;">
+  <h2>We’re getting married</h2>
+  <h1 class="script">Faith & Lenard</h1>
+  <p>Friday, May 8, 2026</p>
+
+  <div class="countdown" id="countdown"></div>
+
+  <a href="#rsvp" class="btn">RSVP Now</a>
+</section>
+
+<!-- PAGE 2 -->
+<section style="background:var(--blue);color:white;">
+  <div class="card">
+    <h2>The Venue</h2>
+    <p><strong>Riverview Event Center</strong></p>
+    <p>Taganaan, Cagayan de Oro City - 3:00 PM</p>
+    <a class="btn" href="https://maps.app.goo.gl/Ga34iM2PnYoKGoJn9" target="_blank">View Map</a>
+  </div>
+</section>
+
+<!-- PAGE 3 DETAILS -->
+<section style="background:var(--pink);">
+  <div class="card">
+    <h2>Wedding Details</h2>
+
+    <p><strong>Girls:</strong> Lavender, Baby Pink, Powder Blue, Yellow</p>
+    <div class="colors">
+      <div class="color-box" style="background:#B4AAC8">Lavender</div>
+      <div class="color-box" style="background:#EBB4B4">Pink</div>
+      <div class="color-box" style="background:#96B4D2">Blue</div>
+      <div class="color-box" style="background:#F5DC78">Yellow</div>
+    </div>
+
+    <p><strong>Boys:</strong> Cream, Beige, Light Brown</p>
+    <div class="colors">
+      <div class="color-box" style="background:#F5F5DC;color:#000">Cream</div>
+      <div class="color-box" style="background:#E8DCC4;color:#000">Beige</div>
+      <div class="color-box" style="background:#C4A484">Light Brown</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 3 RSVP -->
+<section id="rsvp" style="background:var(--peach);">
+  <div class="card">
+    <h2>Join Our Celebration</h2>
+
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email Address" required>
+
+    <select>
+      <option>Will you attend?</option>
+      <option>Joyfully Accept</option>
+      <option>Regretfully Decline</option>
+    </select>
+
+    <select>
+      <option>Number of Guests</option>
+      <option>1</option><option>2</option><option>3</option>
+      <option>4</option><option>5</option><option>6</option>
+      <option>7</option><option>8</option><option>9</option><option>10</option>
+    </select>
+
+    <textarea placeholder="Dietary Restrictions"></textarea>
+    <textarea placeholder="Sweet Message"></textarea>
+
+    <button class="btn">Send my response</button>
+  </div>
+</section>
+
+<!-- PAGE 4 GUESTBOOK -->
+<section style="background:var(--green);">
+  <div class="card">
+    <h2>Guestbook</h2>
+    <p>Leave your well wishes for us</p>
+
+    <input type="text" placeholder="Your Name">
+    <textarea placeholder="Message"></textarea>
+
+    <button class="btn">Send my message</button>
+  </div>
+</section>
+
+<!-- PAGE 5 -->
+<section style="background:var(--yellow);">
+  <div class="card">
+    <h2>Gift Registry</h2>
+    <p>Your generosity makes our dream come true</p>
+    <p>Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, we have registered at:</p>
+
+    <a class="btn" href="https://aprilsalem-cyber.github.io/gift-selection/?fbclid=IwY2xjawQ9xD9leHRuA2FlbQIxMABicmlkETF1SThkNnpsd3hnMFBUZ21Hc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgk6jTxgwEAci2P-RcW6wBDpaBuMkNqpOUH3yyfVw9UnrYSxBiCfbu8tERja_aem_4SZKiz_Qd5DsrkglMRFF-w" target="_blank">🎁 View Our Gift Registry</a>
+  </div>
+</section>
+
+<script>
+  const countdown = document.getElementById('countdown');
+  const weddingDate = new Date('May 8, 2026 00:00:00').getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }, 1000);
+</script>
+
+</body>
+</html>
