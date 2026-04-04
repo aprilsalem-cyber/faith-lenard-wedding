@@ -6,28 +6,34 @@
 <title>Wedding</title>
 
 <style>
+/* 🌸 BODY SETUP */
 body {
   margin: 0;
   background: #f6eeee;
+  overflow: hidden; /* disables scroll so buttons work perfectly */
 }
 
-/* 🌸 Each page fills the screen */
+/* 🌸 EACH PAGE FULL SCREEN */
 .page {
   width: 100%;
-  min-height: 100vh;
-  display: flex;
+  height: 100vh;
+  display: none; /* hide by default */
   justify-content: center;
   align-items: center;
 }
 
-/* 🌸 Image full screen */
+.active {
+  display: flex; /* only active page shows */
+}
+
+/* 🌸 IMAGE FULL SCREEN */
 .page img {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
 }
 
-/* 🌸 Elegant navigation buttons */
+/* 🌸 ELEGANT NAVIGATION BUTTONS */
 .nav {
   position: fixed;
   bottom: 30px;
@@ -43,7 +49,7 @@ button {
   font-family: 'Arial', sans-serif;
   font-weight: bold;
   color: #fff;
-  background: linear-gradient(145deg, #800020, #b3002d); /* shiny burgundy gradient */
+  background: linear-gradient(145deg, #800020, #b3002d); /* shiny burgundy */
   border: none;
   border-radius: 25px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -60,32 +66,24 @@ button:hover {
 
 <body>
 
-<!-- PAGE 1 -->
+<!-- 🌸 PAGES -->
 <div id="page1" class="page active">
   <img src="page1.png" alt="Page 1">
 </div>
-
-<!-- PAGE 2 -->
 <div id="page2" class="page">
   <img src="page2.png" alt="Page 2">
 </div>
-
-<!-- PAGE 3 -->
 <div id="page3" class="page">
   <img src="page3.png" alt="Page 3">
 </div>
-
-<!-- PAGE 4 -->
 <div id="page4" class="page">
   <img src="page4.png" alt="Page 4">
 </div>
-
-<!-- PAGE 5 -->
 <div id="page5" class="page">
   <img src="page5.png" alt="Page 5">
 </div>
 
-<!-- NAVIGATION -->
+<!-- 🌸 NAVIGATION BUTTONS -->
 <div class="nav">
   <button onclick="prevPage()">Previous</button>
   <button onclick="nextPage()">Next</button>
