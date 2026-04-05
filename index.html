@@ -15,6 +15,19 @@ body{
   color:#a20101;
   text-align:center;
 }
+  /* Transparent background overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://cdn.phototourl.com/free/2026-04-05-7de165bd-f403-4925-87ad-2ca887231ddb.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.75; /* 75% visible */
+  z-index: -1;    /* behind all content */
+}
 
 .section{padding:60px 20px;}
 h1,h2{margin:10px 0;}
