@@ -94,7 +94,7 @@ function showPage(num) {
   document.getElementById('page' + num).style.display = 'block';
   current = num;
 
-  updateButtons(); // 🔥 important
+  updateButtons();
 }
 
 function nextPage() {
@@ -114,15 +114,12 @@ function updateButtons() {
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
 
-  // Hide PREVIOUS on page 1
-  prevBtn.style.display = (current === 1) ? "none" : "inline-block";
-
-  // Hide NEXT on last page (page 5)
-  nextBtn.style.display = (current === total) ? "none" : "inline-block";
+  if (prevBtn) prevBtn.style.display = (current === 1) ? "none" : "inline-block";
+  if (nextBtn) nextBtn.style.display = (current === total) ? "none" : "inline-block";
 }
 
-// 🔥 VERY IMPORTANT: run on load
-updateButtons();
+// 🔥 RUN THIS ON LOAD
+showPage(1);
 </script>
 
 </body>
