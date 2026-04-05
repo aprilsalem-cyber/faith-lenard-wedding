@@ -54,16 +54,21 @@ img{
 
 /* HERO IMAGE - Faith & Lenard */
 .hero-img{
-  width:800px;       /* really big on desktop */
-  max-width:95%;     /* still responsive */
+  width:800px;       /* big on desktop */
+  max-width:95%;     /* responsive */
   height:auto;
+  display:block;     /* center the image */
+  margin:0 auto;     /* horizontal center */
 }
-  /* MOBILE RESPONSIVE */
+
+/* MOBILE RESPONSIVE */
 @media (max-width:768px){
   .hero-img{
-    width:90%;       /* take 90% of the mobile screen width */
-    max-width:none;  /* remove previous max-width limit */
+    width:90%;        /* take most of the screen width */
+    max-width:90%;    /* prevent overflow */
     height:auto;
+    display:block;
+    margin:0 auto;    /* center it on mobile too */
   }
 }
 
