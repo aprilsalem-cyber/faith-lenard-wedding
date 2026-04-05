@@ -45,9 +45,11 @@ body > * {
   color: #a20101;
 }
     .arch-img {
-      width: 400px;
-      margin: 10px 0 20px;
-    }
+  width: 650px;             /* perfect size for center visibility */
+  margin: 20px auto 40px;   /* center horizontally with auto, add spacing above & below */
+  display: block;            /* makes auto margins work */
+  mix-blend-mode: multiply;  /* removes white background */
+}
     .date-location {
       font-size: 25px;
       margin: 10px 0;
