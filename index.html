@@ -59,14 +59,21 @@ img{
   height:auto;
 }
 
-/* DRESS CODE IMAGE */
+/* DRESS CODE IMAGE - BIGGER */
 .dress-img{
-  width:700px;
-  max-width:95%;
+  width:1400px;       /* 2x bigger than before! */
+  max-width:95%;      /* still responsive */
   height:auto;
   border-radius:20px;
   box-shadow:0 10px 30px rgba(0,0,0,0.2);
   margin-top:20px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:768px){
+  .dress-img{
+    width:350px;       /* keep mobile nice and readable */
+  }
 }
 
 /* SEND A MESSAGE / ENVELOPE IMAGE */
