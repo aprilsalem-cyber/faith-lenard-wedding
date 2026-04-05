@@ -52,19 +52,50 @@ img{
   gap:20px;
 }
 
+/* HERO IMAGE - Faith & Lenard */
 .hero-img{
-  width:350px;
-  max-width:90%;
+  width:800px;       /* really big on desktop */
+  max-width:95%;     /* still responsive */
+  height:auto;
 }
 
-/* MOBILE */
-@media (max-width:768px){
-  h1.great{font-size:55px !important;}
-  h2{font-size:20px !important;}
-  #countdown{font-size:18px;}
+/* DRESS CODE IMAGE */
+.dress-img{
+  width:700px;
+  max-width:95%;
+  height:auto;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  margin-top:20px;
+}
 
+/* SEND A MESSAGE / ENVELOPE IMAGE */
+.message-img{
+  width:300px;
+  max-width:90%;
+  height:auto;
+}
+
+/* GIFT IMAGE */
+.gift-img{
+  width:300px;
+  max-width:90%;
+  height:auto;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:768px){
   .hero-img{
-    width:260px;
+    width:400px;      /* bigger on mobile too */
+  }
+  .dress-img{
+    width:350px;
+  }
+  .message-img{
+    width:220px;
+  }
+  .gift-img{
+    width:220px;
   }
 }
 
