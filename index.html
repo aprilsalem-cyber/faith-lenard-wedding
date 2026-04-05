@@ -74,8 +74,8 @@ img{
 
 /* DRESS CODE IMAGE - BIGGER */
 .dress-img{
-  width:1400px;       /* 2x bigger than before! */
-  max-width:95%;      /* still responsive */
+  width:1800px;       /* bigger on desktop */
+  max-width:100%;     /* allow full width if screen is smaller */
   height:auto;
   border-radius:20px;
   box-shadow:0 10px 30px rgba(0,0,0,0.2);
@@ -85,7 +85,8 @@ img{
 /* MOBILE RESPONSIVE */
 @media (max-width:768px){
   .dress-img{
-    width:350px;       /* keep mobile nice and readable */
+    width:90%;       /* take 90% of mobile screen width */
+    max-width:none;  /* remove max-width limit */
   }
 }
 
