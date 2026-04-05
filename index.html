@@ -1,235 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Faith & Lenard Wedding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <style>
-    body {
-  position: relative;
-  font-family: 'Cyrillle Bodoni Condensed', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  color: #a20101;
-  background: url('https://cdn.phototourl.com/free/2026-04-05-7de165bd-f403-4925-87ad-2ca887231ddb.png') no-repeat center center fixed;
-  background-size: cover;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faith & Lenard Wedding</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+body{
+  margin:0;
+  font-family:'Cyrillie Bodoni Condensed', serif;
+  background:url('https://cdn.phototourl.com/free/2026-04-05-7de165bd-f403-4925-87ad-2ca887231ddb.png') no-repeat center/cover;
+  color:#a20101;
+  text-align:center;
 }
-
-/* Transparent overlay */
-body::before {
-  content: "";
-  position: fixed;  /* cover the entire page */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.35); /* 65% visible background */
-  z-index: 0;
+.section{padding:60px 20px;}
+h1,h2{margin:10px 0;}
+.great{font-family:'Great Vibes', cursive;}
+.button{
+  background:#800020;
+  color:white;
+  padding:15px 30px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(128,0,32,0.7);
+  transition:0.3s;
 }
-
-/* Make content above the overlay */
-body > * {
-  position: relative;
-  z-index: 1;
+.button:hover{transform:scale(1.05);}
+.circle{
+  width:60px;height:60px;border-radius:50%;display:inline-block;margin:10px;
 }
-    h1 {
-      font-size: 25px;
-      margin: 20px 0 10px;
-    }
-    h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 95px;
-  margin: 0 0 20px;
-  color: #a20101;
-}
-    .arch-img {
-  width: 650px;             /* perfect size for center visibility */
-  margin: 20px auto 40px;   /* center horizontally with auto, add spacing above & below */
-  display: block;            /* makes auto margins work */
-  mix-blend-mode: multiply;  /* removes white background */
-}
-    .date-location {
-      font-size: 25px;
-      margin: 10px 0;
-    }
-    .location-img {
-      width: 40px;
-      vertical-align: middle;
-      cursor: pointer;
-    }
-    .countdown {
-      font-size: 28px;
-      margin: 20px 0;
-    }
-    .rsvp-btn, .gift-btn, .form-btn {
-      background-color: #800020;
-      color: white;
-      padding: 15px 30px;
-      text-decoration: none;
-      font-size: 22px;
-      border-radius: 10px;
-      display: inline-block;
-      margin: 15px;
-      transition: 0.3s;
-    }
-    .rsvp-btn:hover, .gift-btn:hover, .form-btn:hover {
-      background-color: #a20101;
-      transform: scale(1.05);
-    }
-    .section {
-      padding: 50px 20px;
-    }
-    .headline {
-      font-size: 70px;
-      font-weight: bold;
-      margin-bottom: 40px;
-    }
-    .dresscode-container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 50px;
-      margin-top: 50px;
-    }
-    .lady, .man {
-      position: relative;
-      width: 250px;
-    }
-    .lady img, .man img {
-      width: 100%;
-    }
-    .circle-row {
-      display: flex;
-      gap: 12px; /* ~1/2 inch */
-      margin-bottom: 20px;
-    }
-    .circle {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-    .arrow {
-      width: 50px;
-      height: 50px;
-      background: url('https://cdn-icons-png.flaticon.com/512/32/32339.png') no-repeat center center;
-      background-size: contain;
-      position: absolute;
-      top: 120px; /* adjust as needed */
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .envelope {
-      width: 150px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .envelope:hover {
-      transform: scale(1.1);
-    }
-    .gift-img {
-      width: 200px;
-      cursor: pointer;
-      margin-top: 30px;
-      transition: transform 0.3s;
-    }
-    .gift-img:hover {
-      transform: scale(1.05);
-    }
-  </style>
+#countdown{font-size:24px;margin-top:20px;}
+img{max-width:100%;}
+.flex{display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;}
+</style>
 </head>
 <body>
 
-  <!-- Wedding Header -->
-  <h1>We're getting married</h1>
-  <h2>Faith & Lenard</h2>
-  <img class="arch-img" src="https://cdn.phototourl.com/free/2026-04-05-3aafa656-0fac-40ea-afca-3633dfe8e6f7.png" alt="Arch">
+<div class="section">
+<h2 style="font-size:25px;">We're getting married</h2>
+<h1 class="great" style="font-size:95px;">Faith & Lenard</h1>
+<img src="https://cdn.phototourl.com/free/2026-04-05-69831e56-0d32-4972-854c-91b9e95065ac.jpg" style="width:300px;">
+<p>May 08, 2026 - 3:00PM, Friday</p>
+<p>
+<a href="https://maps.app.goo.gl/LLdzTDZg5VFxoNM78" target="_blank">
+<img src="https://www.clipartmax.com/middle/m2K9A0A0N4N4A0G6_computer-icons-map-clip-art-location-clipart/" width="40">
+</a>
+Riverview Event Center, Taguanao, CDO
+</p>
+<div id="countdown"></div>
+<br>
+<a href="#rsvp"><button class="button">RSVP NOW</button></a>
+</div>
 
-  <div class="date-location">
-    May 08, 2026 - 3:00PM, Friday <br>
-    Riverview, Eventcenter, Taguanao, Cagayan de Oro City 
-    <a href="https://maps.app.goo.gl/LLdzTDZg5VFxoNM78" target="_blank">
-      <img class="location-img" src="https://www.clipartmax.com/png/full/186-1862515_computer-icons-map-clip-art-location-clipart.png" alt="Location">
-    </a>
-  </div>
+<div class="section">
+<h1 class="great" style="font-size:70px;">Dress Code</h1>
+<div class="flex">
+<div>
+<img src="https://cdn.phototourl.com/free/2026-04-05-748c4365-dd7b-49f8-9461-24ab4c5e5b01.png" width="200">
+<div>
+<span class="circle" style="background:#e2a9f1"></span>
+<span class="circle" style="background:#f8a0c2"></span>
+<span class="circle" style="background:#9ee4fa"></span>
+<span class="circle" style="background:#f8dc69"></span>
+</div>
+</div>
+<div>
+<img src="https://cdn.phototourl.com/free/2026-04-05-9df6f682-e714-412f-bf51-14e43d2b482b.jpg" width="200">
+<div>
+<span class="circle" style="background:#f1e9d2"></span>
+<span class="circle" style="background:#d9c3a1"></span>
+<span class="circle" style="background:#bc9c82"></span>
+</div>
+</div>
+</div>
+</div>
 
-  <!-- Countdown -->
-  <div class="countdown" id="countdown"></div>
+<div class="section" id="rsvp">
+<h1 class="great" style="font-size:70px;">Join Our Celebration!</h1>
+<br>
+<a href="https://docs.google.com/forms/d/1D4Kp9ogNjKpBoVZRIESSRoH0uPpsUH9uijOSKH3q-xY/edit" target="_blank"><button class="button">Name</button></a>
+<a href="https://docs.google.com/forms/d/1D4Kp9ogNjKpBoVZRIESSRoH0uPpsUH9uijOSKH3q-xY/edit" target="_blank"><button class="button">Will You Attend</button></a>
+<a href="https://docs.google.com/forms/d/1D4Kp9ogNjKpBoVZRIESSRoH0uPpsUH9uijOSKH3q-xY/edit" target="_blank"><button class="button">Diet Restrictions</button></a>
+</div>
 
-  <!-- RSVP Button -->
-  <a href="https://forms.gle/YOUR-RSVP-LINK" target="_blank" class="rsvp-btn">RSVP NOW</a>
+<div class="section">
+<h1 class="great" style="font-size:70px;">Leave your well wishes for us!</h1>
+<a href="https://docs.google.com/forms/d/1ieK6ABFzpE1qk1Un06nF2aLAfjnEje9j57dpeB_HtZw/edit" target="_blank">
+<img src="https://cdn.phototourl.com/free/2026-04-05-5046f236-dbbd-483f-b56f-b77953e77592.png" width="200">
+</a>
+</div>
 
-  <!-- Dress Code Section -->
-  <div class="section">
-    <div class="headline">Dress code</div>
-    <div class="dresscode-container">
-      <div class="lady">
-        <img src="https://cdn.phototourl.com/free/2026-04-05-748c4365-dd7b-49f8-9461-24ab4c5e5b01.png" alt="Lady">
-        <div class="circle-row">
-          <div class="circle" style="background-color:#e2a9f1"></div>
-          <div class="circle" style="background-color:#f8a0c2"></div>
-          <div class="circle" style="background-color:#9ee4fa"></div>
-          <div class="circle" style="background-color:#f8dc69"></div>
-        </div>
-        <div class="arrow"></div>
-      </div>
-      <div class="man">
-        <img src="https://cdn.phototourl.com/free/2026-04-05-9df6f682-e714-412f-bf51-14e43d2b482b.jpg" alt="Man">
-        <div class="circle-row" style="position:absolute; bottom:50px;">
-          <div class="circle" style="background-color:#f1e9d2"></div>
-          <div class="circle" style="background-color:#d9c3a1"></div>
-          <div class="circle" style="background-color:#bc9c82"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="section">
+<h1 class="great" style="font-size:70px;">Choose your gift!</h1>
+<p style="font-size:25px;">Your generosity makes our dream come true.</p>
+<p style="font-size:32px;">Your presence at our wedding is the greatest gift of all. However, if you wish to bless us with a gift, you may select one from our gift list by clicking the gift below.</p>
+<a href="https://aprilsalem-cyber.github.io/gift-selection/?fbclid=IwY2xjawQ-69lleHRuA2FlbQIxMABicmlkETExbElOeThSejRRVGpKQTc4c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHk_YlF4ifR45ozhWdlU5fqHrRNYFNMPJwi0zl-IaPcVwFBfiTJUXL9UrK0FY_aem_BqQogtfDzY7FKBiJeXYG1g" target="_blank">
+<img src="https://cdn.phototourl.com/free/2026-04-05-9fbb5726-ed11-4de2-8473-58bc8275f4ff.png" width="200">
+</a>
+</div>
 
-  <!-- Join Our Celebration -->
-  <div class="section">
-    <div class="headline">Join Our Celebration!</div>
-    <a href="https://docs.google.com/forms/d/1D4Kp9ogNjKpBoVZRIESSRoH0uPpsUH9uijOSKH3q-xY/edit?usp=sharing" target="_blank" class="form-btn">Name</a>
-    <a href="https://docs.google.com/forms/d/1D4Kp9ogNjKpBoVZRIESSRoH0uPpsUH9uijOSKH3q-xY/edit?usp=sharing" target="_blank" class="form-btn">Will you attend</a>
-    <a href="https://docs.google.com/forms/d/1D4Kp9ogNjKpBoVZRIESSRoH0uPpsUH9uijOSKH3q-xY/edit?usp=sharing" target="_blank" class="form-btn">Diet Restrictions</a>
-  </div>
-
-  <!-- Well Wishes -->
-  <div class="section">
-    <div class="headline">Leave your well wishes for us!</div>
-    <a href="https://docs.google.com/forms/d/1ieK6ABFzpE1qk1Un06nF2aLAfjnEje9j57dpeB_HtZw/edit" target="_blank">
-      <img class="envelope" src="https://cdn.phototourl.com/free/2026-04-05-5046f236-dbbd-483f-b56f-b77953e77592.png" alt="Envelope">
-    </a>
-  </div>
-
-  <!-- Gift Section -->
-  <div class="section">
-    <div class="headline">Choose your gift!</div>
-    <div style="font-size:25px; margin-top:20px;">Your generosity makes our dream come true.</div>
-    <div style="font-size:32px; margin-top:10px;">
-      Your presence at our wedding is the greatest gift of all. However, if you wish to bless us with a gift, you may select one from our gift list by clicking the gift below.
-    </div>
-    <a href="https://aprilsalem-cyber.github.io/gift-selection/?fbclid=IwY2xjawQ-69lleHRuA2FlbQIxMABicmlkETExbElOeThSejRRVGpKQTc4c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHk_YlF4ifR45ozhWdlU5fqHrRNYFNMPJwi0zl-IaPcVwFBfiTJUXL9UrK0FY_aem_BqQogtfDzY7FKBiJeXYG1g" target="_blank">
-      <img class="gift-img" src="https://cdn.phototourl.com/free/2026-04-05-9fbb5726-ed11-4de2-8473-58bc8275f4ff.png" alt="Gift">
-    </a>
-  </div>
-
-  <!-- Countdown Script -->
-  <script>
-    const weddingDate = new Date("2026-05-08T15:00:00").getTime();
-    const countdown = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-      const days = Math.floor(distance / (1000*60*60*24));
-      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-      const seconds = Math.floor((distance % (1000*60)) / 1000);
-      document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      if(distance < 0){
-        clearInterval(countdown);
-        document.getElementById("countdown").innerHTML = "Our Wedding Day is Here! 🎉";
-      }
-    }, 1000);
-  </script>
+<script>
+var countDownDate = new Date("May 8, 2026 15:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
 
 </body>
 </html>
