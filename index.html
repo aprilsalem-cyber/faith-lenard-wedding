@@ -63,21 +63,22 @@ body > * {
       font-size: 28px;
       margin: 20px 0;
     }
-    .rsvp-btn, .gift-btn, .form-btn {
-      background-color: #800020;
-      color: white;
-      padding: 15px 30px;
-      text-decoration: none;
-      font-size: 22px;
-      border-radius: 10px;
-      display: inline-block;
-      margin: 15px;
-      transition: 0.3s;
-    }
-    .rsvp-btn:hover, .gift-btn:hover, .form-btn:hover {
-      background-color: #a20101;
-      transform: scale(1.05);
-    }
+   .rsvp-btn, .gift-btn, .form-btn {
+  background-color: #800020;
+  color: white;
+  padding: 15px 30px;
+  font-size: 22px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 15px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.rsvp-btn:hover, .gift-btn:hover, .form-btn:hover {
+  background-color: #a20101;
+  transform: scale(1.05); /* gives it the “shiny/interactive” effect */
+}
     .section {
       padding: 50px 20px;
     }
@@ -161,29 +162,25 @@ body > * {
   <a href="https://forms.gle/YOUR-RSVP-LINK" target="_blank" class="rsvp-btn">RSVP NOW</a>
 
   <!-- Dress Code Section -->
-  <div class="section">
-    <div class="headline">Dress code</div>
-    <div class="dresscode-container">
-      <div class="lady">
-        <img src="https://cdn.phototourl.com/free/2026-04-05-748c4365-dd7b-49f8-9461-24ab4c5e5b01.png" alt="Lady">
-        <div class="circle-row">
-          <div class="circle" style="background-color:#e2a9f1"></div>
-          <div class="circle" style="background-color:#f8a0c2"></div>
-          <div class="circle" style="background-color:#9ee4fa"></div>
-          <div class="circle" style="background-color:#f8dc69"></div>
-        </div>
-        <div class="arrow"></div>
-      </div>
-      <div class="man">
-        <img src="https://cdn.phototourl.com/free/2026-04-05-9df6f682-e714-412f-bf51-14e43d2b482b.jpg" alt="Man">
-        <div class="circle-row" style="position:absolute; bottom:50px;">
-          <div class="circle" style="background-color:#f1e9d2"></div>
-          <div class="circle" style="background-color:#d9c3a1"></div>
-          <div class="circle" style="background-color:#bc9c82"></div>
-        </div>
-      </div>
+  <div class="dresscode-container">
+  <div class="lady">
+    <img src="LADY_IMAGE_URL" alt="Lady">
+    <div class="circle-row">
+      <div class="circle" style="background:#e2a9f1"></div>
+      <div class="circle" style="background:#f8a0c2"></div>
+      <div class="circle" style="background:#9ee4fa"></div>
+      <div class="circle" style="background:#f8dc69"></div>
     </div>
   </div>
+  <div class="man">
+    <img src="MAN_IMAGE_URL" alt="Man">
+    <div class="circle-row">
+      <div class="circle" style="background:#f1e9d2"></div>
+      <div class="circle" style="background:#d9c3a1"></div>
+      <div class="circle" style="background:#bc9c82"></div>
+    </div>
+  </div>
+</div>
 
   <!-- Join Our Celebration -->
   <div class="section">
