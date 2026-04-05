@@ -81,8 +81,8 @@ button:hover {
 
 <!-- 🌸 NAVIGATION BUTTONS -->
 <div class="nav">
-  <button onclick="prevPage()">Previous</button>
-  <button onclick="nextPage()">Next</button>
+  <button id="prevBtn" onclick="prevPage()">Previous</button>
+  <button id="nextBtn" onclick="nextPage()">Next</button>
 </div>
 
 <script>
@@ -90,29 +90,39 @@ let current = 1;
 let total = 5;
 
 function showPage(num) {
-  const pages = document.querySelectorAll('.page');
-  pages.forEach(p => p.style.display = 'none');
-  pages[num-1].style.display = 'flex';
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  document.getElementById('page' + num).style.display = 'block';
+  current = num;
+
+  updateButtons(); // 🔥 important
 }
 
 function nextPage() {
-  if (current < total) {
-    current++;
-    showPage(current);
-    window.scrollTo(0,0); // scroll to top when switching pages
-  }
+  if (current < total) showPage(current + 1);
 }
 
 function prevPage() {
-  if (current > 1) {
-    current--;
-    showPage(current);
-    window.scrollTo(0,0);
-  }
+  if (current > 1) showPage(current - 1);
 }
 
-// Show first page on load
-showPage(current);
+function goToPage(num) {
+  showPage(num);
+}
+
+/* 🌸 BUTTON CONTROL */
+function updateButtons() {
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  // Hide PREVIOUS on page 1
+  prevBtn.style.display = (current === 1) ? "none" : "inline-block";
+
+  // Hide NEXT on last page (page 5)
+  nextBtn.style.display = (current === total) ? "none" : "inline-block";
+}
+
+// 🔥 VERY IMPORTANT: run on load
+updateButtons();
 </script>
 
 </body>
